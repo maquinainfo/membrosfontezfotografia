@@ -3,503 +3,850 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noiva Fotogênica - Área de Membros</title>
-    
-    <!-- Bibliotecas Externas -->
+    <title>Noiva Fotogênica - Guia de Poses por Edu Fontez</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Configuração Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        netflix: {
-                            bg: '#141414',
-                            red: '#E50914',
-                            dark: '#000000',
-                            gray: '#808080',
-                            card: '#1f1f1f',
-                            light: '#e5e5e5'
-                        },
                         brand: {
                             gold: '#D4AF37',
-                            soft: '#FFF0F5',
-                            green: '#27ae60'
+                            dark: '#0f0f0f',
+                            gray: '#1a1a1a',
+                            light: '#f3f3f3',
+                            green: '#27ae60',
+                            red: '#e74c3c',
+                            soft: '#FFF0F5'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                    },
-                    height: {
-                        'hero': '85vh',
                     }
                 }
             }
         }
     </script>
-
-    <!-- Estilos Customizados -->
     <style>
-        body {
-            background-color: #141414;
-            color: white;
-            overflow-x: hidden;
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://i.postimg.cc/TYgjy8f0/mg-3692.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-
-        /* Esconder Scrollbar mas manter funcionalidade */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        .gradient-text {
+            background: linear-gradient(to right, #D4AF37, #FBE09C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .cta-pulse {
+            animation: pulse-green 2s infinite;
         }
-
-        /* Gradiente do Header */
-        .header-gradient {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0));
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
         }
-        
-        /* Gradiente do Hero */
-        .hero-vignette {
-            background: linear-gradient(to top, #141414 10%, transparent 50%);
+        .mockup-shadow {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-
-        /* Cards Hover Effect */
-        .card-container {
-            transition: transform 0.3s ease, z-index 0.3s;
-        }
-        .card-container:hover {
-            transform: scale(1.05);
-            z-index: 50;
-            cursor: pointer;
-        }
-        
-        /* Estilo específico para cards de texto */
-        .text-card {
-            background: linear-gradient(135deg, #1f1f1f 0%, #141414 100%);
-            border: 1px solid #333;
-            transition: border-color 0.3s, background 0.3s;
-            position: relative;
-        }
-        .text-card:hover {
-            border-color: #D4AF37;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-        }
-
-        /* Modal Animation */
-        .modal-enter {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        .modal-enter-active {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 300ms, transform 300ms;
-        }
-        .modal-exit {
-            opacity: 1;
-        }
-        .modal-exit-active {
-            opacity: 0;
-            transition: opacity 200ms;
-        }
+        h1, h2, h3 { letter-spacing: -0.02em; }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="bg-brand-dark text-brand-light font-sans antialiased overflow-x-hidden">
 
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-colors duration-300 px-4 md:px-12 py-4 flex items-center justify-between header-gradient">
-        <div class="flex items-center gap-8">
-            <!-- Logo -->
-            <a href="#" class="text-brand-gold font-serif font-bold text-2xl tracking-tighter">
-                EDU FONTEZ
-            </a>
-            
-            <!-- Menu Desktop -->
-            <ul class="hidden md:flex gap-5 text-sm font-light text-gray-200">
-                <li class="font-bold text-white cursor-pointer">Início</li>
-                <li class="hover:text-gray-400 transition cursor-pointer" onclick="scrollToSection('modulos')">Módulos</li>
-                <li class="hover:text-gray-400 transition cursor-pointer" onclick="scrollToSection('bonus')">Bônus</li>
-                <li class="hover:text-gray-400 transition cursor-pointer">Minha Lista</li>
-            </ul>
-        </div>
+    <!-- Scarcity Bar -->
+    <div class="bg-brand-soft text-brand-dark text-center py-3 font-medium text-xs md:text-sm sticky top-0 z-50 shadow-md">
+        👰 <strong>NOIVAS 2026/2027/2028:</strong> O preço especial de lançamento encerra em: <span id="countdown" class="font-mono ml-2 font-bold text-red-600">00:14:35</span>
+    </div>
 
-        <!-- Menu Direita -->
-        <div class="flex items-center gap-5 text-white">
-            <i class="fas fa-search cursor-pointer hover:text-gray-300"></i>
-            <i class="fas fa-bell cursor-pointer hover:text-gray-300"></i>
-            <div class="flex items-center gap-2 cursor-pointer group">
-                <img src="https://ui-avatars.com/api/?name=Noiva&background=D4AF37&color=000" alt="Avatar" class="w-8 h-8 rounded-md">
-                <i class="fas fa-caret-down text-sm transition-transform group-hover:rotate-180"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section (Billboard) -->
-    <div class="relative h-[65vh] md:h-hero w-full overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 w-full h-full">
-            <img src="https://i.postimg.cc/xjZx1pXQ/MG-5775-(1).jpg" 
-                 class="w-full h-full object-cover object-center" 
-                 alt="Noiva Hero">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 hero-vignette"></div>
-        </div>
-
-        <!-- Content - Ajustado -->
-        <div class="absolute bottom-8 left-4 right-4 md:top-[20%] md:bottom-auto md:left-auto md:right-12 max-w-2xl z-10 text-center md:text-right">
-            <div class="flex items-center justify-center md:justify-end gap-2 mb-2 md:mb-4">
-                <span class="text-brand-gold tracking-[0.2em] font-bold text-[10px] md:text-sm uppercase">Guia Oficial</span>
-            </div>
-            
-            <h1 class="text-4xl md:text-7xl font-serif font-bold mb-4 md:mb-6 leading-tight drop-shadow-lg">
-                Noiva <br> Fotogênica
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl mx-auto z-10 py-20">
+            <h1 class="text-3xl md:text-5xl lg:text-7xl font-serif font-bold mb-6 leading-tight text-white">
+                Noiva: saiba como sair perfeita em todas as fotos do casamento <br>
+                <span class="gradient-text italic font-light block mt-2">(Mesmo se você for tímida ou travar na frente das câmeras)</span>
             </h1>
             
-            <div class="flex items-center justify-center md:justify-end gap-3 text-xs md:text-sm text-brand-green font-bold mb-4">
-                <span>98% Relevante</span>
-                <span class="text-gray-300 font-normal">2024</span>
-                <span class="border border-gray-500 px-1 text-[10px] md:text-xs text-gray-300">L</span>
-                <span class="text-gray-300 font-normal">Método Completo</span>
-            </div>
-
-            <p class="hidden sm:block text-sm md:text-xl text-shadow-md mb-6 leading-relaxed max-w-xl mx-auto md:mr-0 md:ml-auto text-gray-100">
-                Você investiu no vestido e na maquiagem. Não deixe que a postura errada ou o nervosismo estraguem suas lembranças.
+            <p class="text-base md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                Aprenda em minutos os segredos das poses elegantes com o Aplicativo Portal da Noiva Fotogênica.
             </p>
-
-            <div class="flex justify-center md:justify-end gap-3 md:gap-4">
-                <button onclick="openModal('Aula Inaugural: O Segredo da Postura de Rainha')" class="bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded flex items-center gap-2 md:gap-3 font-bold hover:bg-opacity-80 transition text-sm md:text-lg">
-                    <i class="fas fa-play"></i> Assistir
-                </button>
-                <button onclick="scrollToSection('modulos')" class="bg-gray-500 bg-opacity-70 text-white px-6 py-2 md:px-8 md:py-3 rounded flex items-center gap-2 md:gap-3 font-bold hover:bg-opacity-50 transition text-sm md:text-lg">
-                    <i class="fas fa-list"></i> Módulos
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Conteúdo Principal (Linhas) -->
-    <div class="relative z-20 mt-0 md:-mt-16 pb-20 space-y-6 md:space-y-12 pl-4 md:pl-12 overflow-hidden" id="modulos">
-        
-        <!-- Módulo 1: O Pré-Wedding -->
-        <div class="row">
-            <h2 class="text-gray-200 font-bold text-xl md:text-2xl mb-4 pt-4 md:pt-0">Módulo 1: O Pré-Wedding</h2>
-            <div class="flex overflow-x-auto space-x-4 pb-4 md:pb-8 no-scrollbar scroll-smooth">
-                
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Como perder a vergonha')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-3 text-xs font-bold border border-brand-gold/20">01</div>
-                        <h3 class="text-white font-serif font-bold text-lg">Timidez Zero</h3>
-                        <p class="text-gray-500 text-xs mt-2">Como relaxar no ensaio</p>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Escolha de Looks')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-3 text-xs font-bold border border-brand-gold/20">02</div>
-                        <h3 class="text-white font-serif font-bold text-lg">Looks que Valorizam</h3>
-                        <p class="text-gray-500 text-xs mt-2">Harmonia visual</p>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Conexão do Casal')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-3 text-xs font-bold border border-brand-gold/20">03</div>
-                        <h3 class="text-white font-serif font-bold text-lg">Conexão do Casal</h3>
-                        <p class="text-gray-500 text-xs mt-2">Poses naturais</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Módulo 2: Cerimônia e Altar -->
-        <div class="row">
-            <h2 class="text-gray-200 font-bold text-xl md:text-2xl mb-4">Módulo 2: Cerimônia e Altar</h2>
-            <div class="flex overflow-x-auto space-x-4 pb-4 md:pb-8 no-scrollbar scroll-smooth">
-                
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('A Entrada Triunfal')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <span class="text-gray-600 text-[10px] uppercase font-bold tracking-widest mb-1">Módulo 2</span>
-                        <h3 class="text-white font-serif font-bold text-lg">A Entrada Triunfal</h3>
-                        <div class="mt-3 text-brand-gold text-sm"><i class="fas fa-church"></i></div>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Postura Sentada e em Pé')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <span class="text-gray-600 text-[10px] uppercase font-bold tracking-widest mb-1">Módulo 2</span>
-                        <h3 class="text-white font-serif font-bold text-lg">Postura no Altar</h3>
-                        <div class="mt-3 text-brand-gold text-sm"><i class="fas fa-chair"></i></div>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Onde colocar as mãos')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <span class="text-gray-600 text-[10px] uppercase font-bold tracking-widest mb-1">Módulo 2</span>
-                        <h3 class="text-white font-serif font-bold text-lg">Onde colocar as mãos</h3>
-                        <div class="mt-3 text-brand-gold text-sm"><i class="fas fa-hands"></i></div>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('O Beijo de Cinema')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative border border-brand-gold/30">
-                        <div class="absolute top-2 right-2 bg-brand-gold text-black text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">Destaque</div>
-                        <span class="text-gray-600 text-[10px] uppercase font-bold tracking-widest mb-1">Módulo 2</span>
-                        <h3 class="text-white font-serif font-bold text-lg">O Beijo de Cinema</h3>
-                        <div class="mt-3 text-brand-gold text-sm"><i class="fas fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Módulo 3: Pós-Cerimônia e Festa -->
-        <div class="row">
-            <h2 class="text-gray-200 font-bold text-xl md:text-2xl mb-4">Módulo 3: Pós-Cerimônia e Festa</h2>
-            <div class="flex overflow-x-auto space-x-4 pb-4 md:pb-8 no-scrollbar scroll-smooth">
-                
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Protocolos Ágeis')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gray flex items-center justify-center text-gray-400 mb-3 text-xs font-bold">01</div>
-                        <h3 class="text-white font-serif font-bold text-lg">Protocolos Ágeis</h3>
-                        <p class="text-gray-500 text-xs mt-2">Fotos com Padrinhos</p>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('O Corte do Bolo')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gray flex items-center justify-center text-gray-400 mb-3 text-xs font-bold">02</div>
-                        <h3 class="text-white font-serif font-bold text-lg">O Corte do Bolo</h3>
-                        <p class="text-gray-500 text-xs mt-2">Ângulos favoráveis</p>
-                    </div>
-                </div>
-
-                <div class="flex-none w-64 md:w-80 card-container group relative" onclick="openModal('Fotos Espontâneas')">
-                    <div class="text-card rounded-md w-full h-44 flex flex-col justify-center items-center p-6 text-center relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-gray flex items-center justify-center text-gray-400 mb-3 text-xs font-bold">03</div>
-                        <h3 class="text-white font-serif font-bold text-lg">Pista de Dança</h3>
-                        <p class="text-gray-500 text-xs mt-2">Saindo linda na festa</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bônus Exclusivos -->
-        <div class="row" id="bonus">
-            <h2 class="text-brand-gold font-bold text-xl md:text-2xl mb-4 flex items-center gap-2">
-                <i class="fas fa-gift"></i> Materiais Bônus
-            </h2>
-            <div class="flex overflow-x-auto space-x-4 pb-4 md:pb-8 no-scrollbar scroll-smooth">
-                
-                <!-- Bônus 1 -->
-                <div class="flex-none w-48 card-container group" onclick="openModal('Planner Digital: Organização Total')">
-                    <div class="text-card h-72 rounded-md flex flex-col justify-between p-6 text-center relative border border-gray-800">
-                        <div class="text-right text-brand-gold"><i class="fas fa-file-download"></i></div>
-                        <div>
-                            <h3 class="text-white font-serif font-bold text-xl mb-2">Planner Digital</h3>
-                            <p class="text-gray-500 text-xs">Organização Total</p>
-                        </div>
-                        <div class="w-full bg-brand-gold text-black text-xs font-bold py-2 rounded uppercase group-hover:bg-white transition">Baixar</div>
-                    </div>
-                </div>
-
-                <!-- Bônus 2 -->
-                <div class="flex-none w-48 card-container group" onclick="openModal('Banco de Poses de Bolso')">
-                    <div class="text-card h-72 rounded-md flex flex-col justify-between p-6 text-center relative border border-gray-800">
-                         <div class="text-right text-brand-gold"><i class="fas fa-mobile-alt"></i></div>
-                        <div>
-                            <h3 class="text-white font-serif font-bold text-xl mb-2">Shot List</h3>
-                            <p class="text-gray-500 text-xs">Banco de Poses de Bolso</p>
-                        </div>
-                         <div class="w-full bg-brand-gold text-black text-xs font-bold py-2 rounded uppercase group-hover:bg-white transition">Acessar</div>
-                    </div>
-                </div>
-
-                <!-- Bônus 3 -->
-                <div class="flex-none w-48 card-container group" onclick="openModal('Guia para Noivos Tímidos')">
-                    <div class="text-card h-72 rounded-md flex flex-col justify-between p-6 text-center relative border border-gray-800">
-                         <div class="text-right text-brand-gold"><i class="fas fa-book-open"></i></div>
-                        <div>
-                            <h3 class="text-white font-serif font-bold text-xl mb-2">Guia do Noivo</h3>
-                            <p class="text-gray-500 text-xs">Para Noivos Tímidos</p>
-                        </div>
-                         <div class="w-full bg-brand-gold text-black text-xs font-bold py-2 rounded uppercase group-hover:bg-white transition">Ler</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="max-w-4xl mx-auto py-10 px-4 text-gray-500 text-sm border-t border-gray-800 mt-10">
-        <div class="flex gap-4 mb-4 text-xl justify-center">
-            <i class="fab fa-facebook-f hover:text-white cursor-pointer"></i>
-            <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
-            <i class="fab fa-youtube hover:text-white cursor-pointer"></i>
-        </div>
-        <p class="text-center">&copy; 2024 Fontez Fotografia. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Video Modal (Overlay) -->
-    <div id="videoModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex items-center justify-center p-4">
-        <div class="bg-[#181818] w-full max-w-5xl rounded-lg overflow-hidden shadow-2xl transform transition-all modal-enter" id="modalContent">
             
-            <!-- Header do Modal -->
-            <div class="flex justify-between items-center p-4 border-b border-gray-800">
-                <h3 id="modalTitle" class="text-xl font-bold text-white font-serif">Título da Aula</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl focus:outline-none">&times;</button>
+            <a href="#oferta" class="cta-pulse bg-brand-green hover:bg-green-600 text-black font-bold py-5 px-8 md:px-12 rounded-full text-lg md:text-xl transition duration-300 shadow-xl inline-flex items-center gap-3 transform hover:-translate-y-1">
+                QUERO ME SENTIR SEGURA NO ALTAR
+                <i class="fas fa-heart text-sm"></i>
+            </a>
+            
+            <div class="mt-8 flex justify-center gap-6 text-xs text-gray-300 font-light tracking-wide">
+                <span class="flex items-center gap-2"><i class="fas fa-mobile-alt text-brand-gold"></i> Leia no Celular</span>
+                <span class="flex items-center gap-2"><i class="fas fa-infinity text-brand-gold"></i> Acesso Vitalício</span>
             </div>
+        </div>
+    </header>
 
-            <!-- Player Fake -->
-            <div class="relative aspect-video bg-black flex items-center justify-center group">
-                <!-- Capa do Player Atualizada -->
-                <img src="https://i.postimg.cc/xjZx1pXQ/MG-5775-(1).jpg" class="absolute inset-0 w-full h-full object-cover opacity-60">
-                
-                <div class="z-10 w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition shadow-lg animate-pulse" onclick="togglePlayState(this)">
-                    <i class="fas fa-play text-black text-3xl ml-2"></i>
-                </div>
-
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
-                    <div class="w-full bg-gray-600 h-1.5 rounded-full mb-4 cursor-pointer">
-                        <div class="bg-netflix-red h-full w-1/3 relative">
-                            <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-netflix-red rounded-full shadow"></div>
-                        </div>
-                    </div>
-                    <div class="flex justify-between text-white">
-                        <div class="flex gap-6 text-xl">
-                            <i class="fas fa-play hover:text-gray-300 cursor-pointer"></i>
-                            <i class="fas fa-undo-10 hover:text-gray-300 cursor-pointer"></i>
-                            <i class="fas fa-volume-up hover:text-gray-300 cursor-pointer"></i>
-                        </div>
-                        <div class="text-sm font-bold">Noiva Fotogênica</div>
-                        <div class="flex gap-6 text-xl">
-                            <i class="fas fa-cog hover:text-gray-300 cursor-pointer"></i>
-                            <i class="fas fa-expand hover:text-gray-300 cursor-pointer"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Info do Episódio -->
-            <div class="p-6 grid md:grid-cols-3 gap-6">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-brand-green font-bold">98% de aprovação</span>
-                        <span class="border border-gray-500 text-xs px-1 text-gray-400">L</span>
-                        <span class="text-gray-400">HD</span>
-                    </div>
-                    <p id="modalDescription" class="text-gray-300 text-sm leading-relaxed">
-                        <!-- O texto será preenchido dinamicamente pelo JS -->
+    <!-- O Problema (Empatia com a Noiva) -->
+    <section class="py-20 bg-brand-light px-4 text-brand-dark">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-8 text-brand-gray">
+                "Será que vou sair de <span class="text-brand-red decoration-wavy underline decoration-brand-red/30">olhos fechados</span> ou com papada?"
+            </h2>
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl text-left border border-gray-100">
+                <p class="text-brand-dark font-medium text-xl mb-6 leading-relaxed border-b border-gray-100 pb-6">
+                    Noiva, você investiu milhares de reais no vestido e na maquiagem. Não deixe que a <strong>postura errada</strong> ou o <strong>nervosismo</strong> estraguem suas lembranças.
+                </p>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    É normal sentir medo. No dia do casamento, <strong>todos os olhares (e câmeras) estarão em você</strong>. 
+                </p>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Talvez você pense: <em>"Ah, mas o fotógrafo vai me dirigir"</em>. A verdade dura? Durante a cerimônia, <strong>o fotógrafo não pode falar com você</strong>. Ele não pode parar o celebrante para pedir que você arrume a postura ou baixe o queixo.
+                </p>
+                <div class="bg-brand-soft border-l-4 border-brand-gold p-6 my-8 rounded-r-lg">
+                    <p class="text-brand-gray font-serif italic text-xl">
+                        "Se você não souber o que fazer com as mãos ou como se posicionar naturalmente, você corre o risco de olhar seu álbum depois e só enxergar o nervosismo estampado no seu rosto."
                     </p>
                 </div>
-                <div class="text-sm text-gray-400 space-y-2">
-                    <p><span class="text-gray-600">Instrutor:</span> Edu Fontez</p>
-                    <p><span class="text-gray-600">Categoria:</span> Postura, Fotografia</p>
+                <p class="text-gray-500 mt-6 text-sm text-center font-medium uppercase tracking-wide">
+                    Você não precisa ser modelo para sair linda. Você só precisa das técnicas certas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Solução (O Produto - Módulos) -->
+    <section class="py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Detalhe decorativo -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold opacity-5 rounded-full filter blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="order-1">
+                <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-4 text-xs">Desenvolvido por Edu Fontez</h4>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white leading-tight">
+                    O APP Portal da <br> <span class="text-brand-gold">Noiva Fotogênica</span>
+                </h2>
+                
+                <p class="text-gray-300 mb-8 text-lg font-light leading-relaxed">
+                    Uma área de membros completa com <strong>aulas diretas</strong>. Um cronograma de preparação visual que cobre do dia do noivado até a última foto da festa.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Módulo 1 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 1: O Pré-Wedding</h3>
+                            <p class="text-sm text-gray-400 mt-1">Como perder a vergonha no ensaio, escolha de looks que valorizam e poses de conexão casal que não parecem forçadas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 2: O Making Of da Noiva</h3>
+                            <p class="text-sm text-gray-400 mt-1">O segredo das fotos de robe, o brinde perfeito com as madrinhas e como se posicionar enquanto é maquiada para parecer uma estrela de cinema.</p>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 3: Ensaio da Noiva Pronta</h3>
+                            <p class="text-sm text-gray-400 mt-1">O retrato mais importante do dia. Como posar sozinha valorizando a cauda do vestido, o véu e a silhueta antes de sair para a cerimônia.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Módulo 4 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 4: Cerimônia e Altar</h3>
+                            <p class="text-sm text-gray-400 mt-1">A entrada triunfal, postura elegante sentada e em pé, onde colocar as mãos e o beijo de cinema no altar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 5 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 5: Ensaio Pós-Cerimônia</h3>
+                            <p class="text-sm text-gray-400 mt-1">O momento "recém-casados". Como aproveitar os 20 minutos de luz após o "sim" para fazer as fotos mais românticas e icônicas do álbum.</p>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 6 -->
+                    <div class="flex gap-4 items-start group">
+                        <div class="w-12 h-12 rounded-full bg-brand-gray flex items-center justify-center text-brand-gold shrink-0 border border-gray-700 group-hover:border-brand-gold transition-colors">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Módulo 6: A Festa</h3>
+                            <p class="text-sm text-gray-400 mt-1">Protocolos ágeis (fotos com padrinhos), corte do bolo e como sair linda nas fotos espontâneas da pista de dança.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alterado de 'hidden md:flex' para 'flex' e adicionado 'mt-12' para espaçamento no mobile -->
+            <div class="relative order-2 flex items-center justify-center mt-12 md:mt-0">
+                 
+                 <!-- ELEMENTO DE CONTRASTE (Glow de Fundo Aumentado) -->
+                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[700px] bg-gradient-to-tr from-brand-gold/40 to-white/10 blur-[90px] rounded-full -z-10 animate-pulse"></div>
+
+                 <!-- Mockup Visual Área de Membros - CARROSSEL MOBILE -->
+                 <!-- MUDANÇA: Borda gray-300 (prata/clara) em vez de escura e Ring branco mais forte -->
+                 <div class="relative w-[300px] h-[600px] bg-black rounded-[2.5rem] border-[8px] border-gray-300 shadow-[0_20px_50px_-12px_rgba(255,255,255,0.1)] ring-2 ring-white/40 transform rotate-2 hover:rotate-0 transition duration-500 ease-out">
+                    
+                    <!-- Screen Container -->
+                    <div class="w-full h-full bg-black rounded-[2rem] overflow-hidden relative border border-gray-800">
+                        
+                        <!-- Top Bar (Fake Mobile UI) -->
+                        <div class="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-black/90 to-transparent z-20 flex justify-between items-start px-6 pt-3">
+                            <span class="text-[10px] text-white font-medium">9:41</span>
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 bg-white/90 rounded-full shadow-sm"></div>
+                                <div class="w-3 h-3 bg-white/90 rounded-full shadow-sm"></div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel -->
+                        <div id="member-carousel" class="w-full h-full relative">
+                            <!-- Imagem 1 -->
+                            <img src="https://i.postimg.cc/1Xh3shNR/Screenshot-20251218-131056.png" class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100 carousel-item" alt="Visão Geral do Portal">
+                            <!-- Imagem 2 -->
+                            <img src="https://i.postimg.cc/kXCgHCmw/Screenshot-20251218-131135.png" class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 carousel-item" alt="Aulas Práticas">
+                            <!-- Imagem 3 -->
+                            <img src="https://i.postimg.cc/dVHQDTTg/Screenshot-20251218-131118.png" class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 carousel-item" alt="Detalhes do Curso">
+                            <!-- Imagem 4 -->
+                            <img src="https://i.postimg.cc/8PTTHbRd/Screenshot-20251218-131110.png" class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 carousel-item" alt="Módulos Exclusivos">
+                            <!-- Imagem 5 -->
+                            <img src="https://i.postimg.cc/0ybRWXbK/Screenshot-20251218-131104.png" class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 carousel-item" alt="Conteúdo Bônus">
+                        </div>
+
+                        <!-- Bottom Gradient Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"></div>
+
+                        <!-- Indicadores -->
+                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+                            <div class="w-1.5 h-1.5 rounded-full bg-white transition-all duration-300 indicator"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 indicator"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 indicator"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 indicator"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elemento Decorativo: "Assista onde quiser" -->
+                <div class="absolute bottom-10 -right-4 bg-brand-gold text-brand-dark p-3 rounded-lg shadow-xl border border-white/20 transform rotate-6 z-20 hidden lg:block animate-bounce">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-mobile-alt text-2xl"></i>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase tracking-widest">100% Mobile</p>
+                            <p class="font-bold text-xs leading-none">Assista onde quiser</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- BÔNUS 1: PLANNER COM VÍDEO -->
+    <section class="py-24 bg-brand-soft border-y border-gray-200">
+        <div class="max-w-6xl mx-auto px-0 md:px-4 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            
+            <!-- Coluna do Mockup (Planner/Livro) -->
+            <div class="w-full md:w-1/2 order-2 md:order-1 px-4 md:px-0">
+                
+                <!-- MOCKUP PLANNER / CADERNO (CSS PURO) -->
+                <div class="relative mx-auto w-full max-w-lg group perspective-1000">
+                    <!-- Sombra de fundo -->
+                    <div class="absolute top-4 left-4 w-full h-full bg-gray-300 rounded-r-2xl rounded-l-md -z-10"></div>
+                    
+                    <!-- Capa do Planner -->
+                    <div class="relative bg-gray-900 rounded-r-2xl rounded-l-md p-1 pl-3 shadow-2xl border-r-4 border-b-4 border-gray-800 transition transform duration-500 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                        
+                        <!-- Espiral / Argolas (Visual CSS) -->
+                        <div class="absolute left-[-12px] top-6 bottom-6 w-6 flex flex-col justify-between z-20 py-2">
+                            <!-- Gerando várias argolas visualmente -->
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                        </div>
+
+                        <!-- Página Interna (Tela do Vídeo) -->
+                        <div class="bg-white rounded-r-xl rounded-l-sm overflow-hidden shadow-inner border-l border-gray-300 relative">
+                            <!-- Abas laterais decorativas -->
+                            <div class="absolute right-0 top-8 w-1 h-8 bg-red-400 rounded-l"></div>
+                            <div class="absolute right-0 top-20 w-1 h-8 bg-yellow-400 rounded-l"></div>
+                            <div class="absolute right-0 top-32 w-1 h-8 bg-green-400 rounded-l"></div>
+
+                            <!-- Player de Vídeo -->
+                            <div class="aspect-video relative z-10 m-1 bg-black rounded shadow-sm overflow-hidden">
+                                <iframe src="https://player.vimeo.com/video/1154087516?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1&autopause=0" 
+                                        class="w-full h-full absolute inset-0" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-xs text-gray-500 mt-8 font-medium flex justify-center items-center gap-2">
+                    <i class="fas fa-book-open text-brand-gold"></i> Veja como funciona o Planner Digital por dentro
+                </p>
+
+            </div>
+            
+            <!-- Coluna de Texto -->
+            <div class="md:w-1/2 order-1 md:order-2 text-center md:text-left">
+                <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-2 text-2xl">Bônus #01</h4>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">
+                    Planner da Noiva: <br> <span class="text-brand-green">Organização Total</span>
+                </h2>
+                
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Sabemos que organizar um casamento é estressante. Por isso, incluímos gratuitamente esta ferramenta completa para você gerenciar o grande dia.
+                </p>
+
+                <!-- LISTA DE FUNCIONALIDADES (DESIGN GRID) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <!-- Item 1 -->
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:border-brand-gold/30">
+                        <div class="bg-brand-dark text-brand-gold w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Checklist Mês a Mês</h5>
+                            <p class="text-xs text-gray-500">Cronograma de 12 meses</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:border-brand-gold/30">
+                        <div class="bg-brand-dark text-brand-gold w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Planilha Financeira</h5>
+                            <p class="text-xs text-gray-500">Automática e completa</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:border-brand-gold/30">
+                        <div class="bg-brand-dark text-brand-gold w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Gestor de Lista</h5>
+                            <p class="text-xs text-gray-500">Controle de convidados</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:border-brand-gold/30">
+                        <div class="bg-brand-dark text-brand-gold w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark text-sm">Organizador Geral</h5>
+                            <p class="text-xs text-gray-500">Contratos e Fornecedores</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block pt-4 border-t border-gray-200">
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wide">Valor separado:</span>
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-xl text-gray-400 line-through">R$ 97,00</span>
+                        <span class="text-2xl font-bold text-brand-green">Grátis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÔNUS 2: BANCO DE POSES (SHOT LIST) -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="md:w-1/2">
+                <span class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full text-lg font-bold uppercase tracking-widest border border-brand-dark/10 mb-6 inline-block">
+                    Bônus #02
+                </span>
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fas fa-camera text-brand-gold text-2xl"></i>
+                    <span class="text-xs font-bold tracking-widest uppercase text-brand-gray">Ferramenta Prática</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">
+                    Banco de Poses de Bolso <br> <span class="text-gray-400 font-sans text-2xl font-normal">(Shot List)</span>
+                </h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Travou na hora H? Abra o seu <strong>Banco de Imagens</strong> no celular. Organizado por momentos (making of, cerimônia, festa), ele serve como um catálogo visual.
+                </p>
+                <div class="bg-gray-50 border-l-4 border-brand-gold p-4 mb-8 rounded-r-lg">
+                    <p class="text-gray-600 text-sm">
+                        <strong>Ajudinha para o Fotógrafo:</strong> Gostou de uma pose? Mostre a foto no celular para seu fotógrafo e diga: <em>"Quero uma igual a essa!"</em>.
+                    </p>
+                </div>
+                
+                <div class="block">
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wide">Valor separado:</span>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl text-gray-400 line-through">R$ 47,00</span>
+                        <span class="text-2xl font-bold text-brand-green">Grátis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual: Celular com grade de fotos -->
+            <div class="md:w-1/2 relative group">
+                <img src="https://i.postimg.cc/LXNyWYzC/Design-sem-nome-(42).jpg" 
+                     alt="Banco de Poses no Celular" 
+                     class="relative z-10 w-72 mx-auto rounded-[2rem] shadow-2xl transform rotate-3 transition duration-500 group-hover:rotate-0 border-4 border-gray-900">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-brand-gold/20 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÔNUS 3: GUIA NOIVOS TÍMIDOS -->
+    <section class="py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Background texture -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-5/12 relative">
+                <!-- Ícone Gigante Representativo -->
+                <div class="w-64 h-64 mx-auto bg-brand-gray rounded-full flex items-center justify-center border-4 border-brand-gold shadow-[0_0_50px_rgba(212,175,55,0.2)]">
+                    <i class="fas fa-user-tie text-9xl text-brand-gold"></i>
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-white text-brand-dark px-6 py-2 rounded-lg font-bold shadow-lg transform -rotate-3">
+                    Para Ele
+                </div>
+            </div>
+
+            <div class="md:w-7/12 text-center md:text-left">
+                <span class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full text-lg font-bold uppercase tracking-widest border border-brand-dark/10 mb-6 inline-block">
+                    Bônus #03
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+                    Guia Prático para <br> <span class="text-brand-gold">Noivos Tímidos</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                    Seu noivo trava nas fotos? Esse manual tem dicas simples e diretas para ele se soltar, saber onde colocar as mãos e parecer um galã de cinema, sem se sentir forçado.
+                </p>
+                <ul class="space-y-3 mb-8 inline-block text-left">
+                    <li class="flex items-center gap-3 text-gray-300">
+                        <i class="fas fa-check text-brand-green"></i> Como relaxar o rosto e evitar o sorriso amarelo
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-300">
+                        <i class="fas fa-check text-brand-green"></i> Poses masculinas de poder e elegância
+                    </li>
+                </ul>
+                
+                <div class="border-t border-gray-800 pt-6">
+                    <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valor separado:</span>
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-xl text-gray-600 line-through">R$ 27,00</span>
+                        <span class="text-2xl font-bold text-brand-green">Grátis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÔNUS 4: CONVITE DIGITAL ANIMADO -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <!-- Ajustei px-4 para px-0 no mobile para maximizar o tamanho -->
+        <div class="max-w-6xl mx-auto px-0 md:px-4 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            
+            <!-- Coluna do Mockup -->
+            <div class="w-full md:w-1/2 order-2 md:order-1 px-2 md:px-0">
+                <!-- MOCKUP PLANNER / CADERNO (Estilo Álbum para o Convite) -->
+                <div class="relative mx-auto w-full max-w-2xl group perspective-1000">
+                    <!-- Sombra de fundo -->
+                    <div class="absolute top-4 left-4 w-full h-full bg-gray-300 rounded-r-2xl rounded-l-md -z-10"></div>
+                    
+                    <!-- Capa -->
+                    <div class="relative bg-gray-900 rounded-r-2xl rounded-l-md p-1 pl-3 shadow-2xl border-r-4 border-b-4 border-gray-800 transition transform duration-500 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                        
+                        <!-- Espiral / Argolas -->
+                        <div class="absolute left-[-12px] top-6 bottom-6 w-6 flex flex-col justify-between z-20 py-2">
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                            <div class="w-full h-3 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-500 rounded-full shadow-md transform -rotate-6"></div>
+                        </div>
+
+                        <!-- Página Interna (Tela do Vídeo do Convite) -->
+                        <div class="bg-white rounded-r-xl rounded-l-sm overflow-hidden shadow-inner border-l border-gray-300 relative">
+                            <!-- Abas laterais decorativas -->
+                            <div class="absolute right-0 top-8 w-1 h-8 bg-brand-gold rounded-l"></div>
+                            <div class="absolute right-0 top-20 w-1 h-8 bg-brand-dark rounded-l"></div>
+
+                            <!-- Player de Vídeo -->
+                            <div class="aspect-video relative z-10 m-1 bg-black rounded shadow-sm overflow-hidden">
+                                <iframe src="https://player.vimeo.com/video/1154110051?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1&autopause=0" 
+                                        class="w-full h-full absolute inset-0" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-xs text-gray-500 mt-6 font-medium">
+                    <i class="fas fa-book-open text-brand-gold"></i> Visualização do Convite Animado
+                </p>
+            </div>
+
+            <!-- Coluna de Texto (com padding lateral no mobile) -->
+            <div class="md:w-1/2 order-1 md:order-2 text-center md:text-left">
+                <span class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full text-lg font-bold uppercase tracking-widest border border-brand-dark/10 mb-6 inline-block">
+                    Bônus #04
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">
+                    Convite Digital <br> <span class="text-brand-gold">para enviar pelo Whatsapp</span>
+                </h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Surpreenda seus convidados antes mesmo da festa. Você ganha acesso a um modelo exclusivo de <strong>Convite em Vídeo (Motion Graphics)</strong>.
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Elegante, moderno e emocionante. Basta editar com seus dados e enviar. É a primeira impressão perfeita para o seu grande dia.
+                </p>
+                
+                <div class="bg-brand-soft border border-brand-gold/20 p-4 rounded-lg inline-block text-left w-full">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valor separado:</span>
+                        <span class="text-sm font-bold text-brand-green bg-green-100 px-2 py-1 rounded">100% OFF</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-1">
+                        <span class="text-xl text-gray-400 line-through">R$ 147,00</span>
+                        <span class="text-2xl font-bold text-brand-dark">Grátis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova Social / Autoridade -->
+    <section class="py-20 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <!-- Foto Edu Fontez Formato Retrato (Instagram 4:5) -->
+            <div class="relative inline-block mb-10 group">
+                <!-- Moldura decorativa atrás -->
+                <div class="absolute inset-0 border-4 border-brand-gold translate-x-4 translate-y-4 rounded-xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                <!-- Foto Principal -->
+                <img src="https://i.postimg.cc/fLfSvsqJ/MG-0566-(1).jpg" alt="Edu Fontez" class="relative w-64 h-80 md:w-80 md:h-[25rem] object-cover rounded-xl shadow-2xl mx-auto grayscale-0 z-10">
+            </div>
+
+            <h3 class="text-3xl font-serif font-bold text-brand-gray mb-2">Quem é Edu Fontez?</h3>
+            
+            <!-- NOVO: Selo Casamentos.com -->
+            <div class="flex justify-center items-center gap-2 mb-6">
+                <div class="flex text-yellow-500 text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-gray-300 pb-0.5">5 Estrelas no Casamentos.com</span>
+            </div>
+
+            <p class="text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed text-lg">
+                Fotógrafo de casamentos há mais de 13 anos, Edu Fontez é reconhecido no mercado por sua <strong>paciência e calma inabaláveis</strong> na direção de casais. <br><br>
+                Ao longo dessa jornada, ele notou que <strong>as noivas mais felizes com as fotos não eram as modelos profissionais</strong>, mas sim aquelas que, com a direção certa e tranquila, aprendiam pequenos truques de postura para relaxar e deixar a beleza fluir. Ele compilou todo esse conhecimento prático neste portal exclusivo.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-brand-gold text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic mb-4">"Eu estava apavorada com as fotos, sempre saio mal. Li o guia na véspera e me senti outra pessoa. As fotos ficaram de revista!"</p>
+                    <p class="font-bold text-brand-dark text-xs uppercase">— Mariana S.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-brand-gold text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic mb-4">"Ensinei os truques pro meu noivo e ele adorou. Nas fotos a gente parece super conectado e natural."</p>
+                    <p class="font-bold text-brand-dark text-xs uppercase">— Carol & Pedro</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="text-brand-gold text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 text-sm italic mb-4">"Vale cada centavo. É um detalhe pequeno que faz uma diferença gigante no álbum final."</p>
+                    <p class="font-bold text-brand-dark text-xs uppercase">— Beatriz M.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta Irresistível -->
+    <section id="oferta" class="py-24 bg-brand-dark px-4 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        
+        <!-- Aumentei max-w-lg para max-w-xl para o plano ficar mais largo e imponente -->
+        <div class="max-w-xl mx-auto bg-gradient-to-b from-brand-gray to-black border border-brand-gold/30 rounded-2xl p-1 shadow-2xl relative z-10">
+            
+            <!-- Reduzi o padding no mobile (p-6) para ganhar espaço interno -->
+            <div class="bg-brand-dark rounded-xl p-6 md:p-10 text-center relative overflow-hidden">
+                <!-- Shine effect -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50"></div>
+
+                <h3 class="text-2xl font-serif font-bold text-white mb-6">APP Portal Noiva Fotogênica</h3>
+                
+                <!-- Oferta em Destaque (Badge Dourado) -->
+                <div class="inline-block bg-gradient-to-r from-brand-gold to-yellow-600 text-black px-8 py-2 rounded-full text-sm font-black tracking-widest uppercase mb-8 shadow-[0_0_20px_rgba(212,175,55,0.4)] transform hover:scale-105 transition duration-300 cursor-default">
+                    🔥 Oferta Especial se esgotando...
+                </div>
+                
+                <!-- PREÇO EM SUPER DESTAQUE -->
+                <div class="relative bg-black/30 border border-brand-gold/20 rounded-2xl p-6 mb-10 text-center backdrop-blur-sm">
+                    <!-- Tag de Desconto Flutuante -->
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg border border-green-400">
+                        75% DE DESCONTO HOJE
+                    </div>
+
+                    <p class="text-gray-500 text-sm line-through mb-2 mt-2">De R$ 197,00</p>
+                    
+                    <div class="flex justify-center items-baseline text-brand-gold leading-none gap-1">
+                        <span class="text-2xl font-bold self-start mt-2">R$</span>
+                        <span class="text-8xl font-black tracking-tighter drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">47</span>
+                        <span class="text-4xl font-bold text-white/90">,90</span>
+                    </div>
+                    
+                    <p class="text-gray-400 text-xs mt-3 font-medium uppercase tracking-widest">Pagamento Único • Acesso Imediato</p>
+                </div>
+
+                <!-- LISTA DE OFERTA ORGANIZADA -->
+                <div class="space-y-4 text-left mb-10 pl-4 border-l border-gray-700">
+                    <!-- Produto -->
+                    <div class="flex items-start gap-3 text-white">
+                        <div class="w-6 h-6 mt-0.5 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center text-xs shrink-0"><i class="fas fa-check"></i></div> 
+                        <div>
+                            <span class="font-bold text-sm md:text-base">Acesso Vitalício ao APP Portal</span>
+                            <p class="text-xs text-gray-400 mt-0.5">Acesso a todas as aulas e ferramentas</p>
+                        </div>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="h-px bg-gray-800 my-2"></div>
+
+                    <!-- Bônus 1 -->
+                    <div class="flex items-start gap-3 text-gray-300">
+                        <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
+                        <div>
+                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 1:</span> <span class="text-sm md:text-base">Planner da Noiva</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Organização Financeira e Checklists</p>
+                        </div>
+                    </div>
+
+                    <!-- Bônus 2 -->
+                    <div class="flex items-start gap-3 text-gray-300">
+                        <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
+                        <div>
+                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 2:</span> <span class="text-sm md:text-base">Banco de Poses</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Shot List de bolso para o dia</p>
+                        </div>
+                    </div>
+
+                    <!-- Bônus 3 -->
+                    <div class="flex items-start gap-3 text-gray-300">
+                        <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
+                        <div>
+                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 3:</span> <span class="text-sm md:text-base">Guia do Noivo</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Para noivos tímidos</p>
+                        </div>
+                    </div>
+
+                    <!-- Bônus 4 -->
+                    <div class="flex items-start gap-3 text-gray-300">
+                        <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-envelope-open-text"></i></div> 
+                        <div>
+                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 4:</span> <span class="text-sm md:text-base">Convite Digital Animado</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Cartão de vídeo de casamento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full bg-brand-green hover:bg-green-600 text-black font-bold py-4 rounded-lg text-lg shadow-lg transition transform hover:scale-105 mb-6 flex justify-center items-center gap-2 cta-pulse">
+                QUERO COMPRAR AGORA
+            </button>
+            
+            <div class="flex items-center justify-center gap-4 text-xs text-gray-500">
+                <span class="flex items-center gap-1"><i class="fas fa-lock"></i> Compra Segura</span>
+                <span class="flex items-center gap-1"><i class="fas fa-bolt"></i> Acesso Imediato</span>
+            </div>
+        </div>
     </div>
+</section>
 
-    <!-- Scripts -->
-    <script>
-        // Dados das Aulas
-        const lessonData = {
-            'Aula Inaugural: O Segredo da Postura de Rainha': "Descubra a técnica fundamental que transforma sua presença em qualquer foto. Aprenda a alinhar a coluna, posicionar o queixo e projetar confiança instantânea assim que a câmera apontar para você.",
-            'Introdução ao Método': "Seja bem-vinda! Entenda como o curso está estruturado e como aproveitar ao máximo cada módulo para garantir que seu álbum de casamento seja inesquecível.",
-            'Perdendo a Vergonha': "Técnicas mentais e práticas para esquecer que a câmera existe. Transforme a timidez em mistério e elegância, focando na conexão com seu parceiro em vez da lente.",
-            'Como perder a vergonha': "Exercícios práticos de respiração e foco para eliminar a tensão no rosto e nos ombros. O segredo para parecer natural mesmo quando está nervosa.",
-            'Escolha de Looks': "Não é só sobre beleza, é sobre harmonia. Saiba quais tecidos, cores e caimentos funcionam melhor na fotografia e como coordenar o visual com seu noivo sem parecer 'par de vasos'.",
-            'Conexão do Casal': "As melhores fotos são aquelas que transmitem emoção real. Aprenda o 'triângulo da conexão' e como interagir fisicamente para criar momentos românticos dignos de cinema.",
-            'A Entrada Triunfal': "Todos os olhos estarão em você. Domine o ritmo da caminhada, a forma de segurar o buquê e o sorriso sereno para uma entrada inesquecível na nave.",
-            'Postura Sentada e em Pé': "Evite a postura curvada no altar. Dicas cruciais de como sentar com elegância mantendo a coluna ereta e como ficar em pé sem travar os joelhos durante a cerimônia longa.",
-            'Onde colocar as mãos': "Nunca mais fique sem saber o que fazer com as mãos. Guia visual de posicionamento para segurar o vestido, tocar o rosto ou entrelaçar os dedos de forma delicada.",
-            'O Beijo de Cinema': "O momento mais aguardado! Ângulos, duração e posicionamento das mãos para garantir que o 'pode beijar a noiva' não resulte em narizes amassados na foto.",
-            'Protocolos Ágeis': "Como fazer as fotos protocolares com pais e padrinhos em tempo recorde e sem sorrisos forçados, liberando você mais rápido para curtir a festa.",
-            'O Corte do Bolo': "O posicionamento estratégico para o corte do bolo. Onde olhar, como segurar a espátula juntos e o brinde perfeito para a foto clássica.",
-            'Fotos Espontâneas': "Como se divertir na pista de dança e ainda sair linda nas fotos. Truques para evitar o 'queixo duplo' enquanto ri e dança até o chão.",
-            'Planner Digital: Organização Total': "Ferramenta exclusiva para organizar seu casamento mês a mês. Baixe agora e mantenha o controle financeiro e de tarefas sem surtar.",
-            'Banco de Poses de Bolso': "Sua cola secreta! Um guia visual rápido para consultar no celular durante o ensaio e ter sempre uma ideia nova de pose na manga.",
-            'Guia para Noivos Tímidos': "Material especial para ele. Ajude seu parceiro a se soltar com dicas simples e diretas, garantindo que ambos estejam em sintonia nas fotos."
-        };
+<!-- NOVA SEÇÃO: GARANTIA GIGANTE DE 90 DIAS -->
+<section class="py-24 bg-white border-t-8 border-brand-gold">
+    <div class="max-w-4xl mx-auto text-center px-4">
+        <!-- Selo de Garantia -->
+        <div class="relative w-40 h-40 mx-auto mb-8 group">
+            <div class="absolute inset-0 bg-brand-gold rounded-full blur-xl opacity-50 group-hover:opacity-70 transition duration-500"></div>
+            <div class="relative w-full h-full bg-brand-dark rounded-full flex flex-col items-center justify-center border-4 border-brand-gold shadow-2xl">
+                <i class="fas fa-shield-alt text-brand-gold text-3xl mb-1"></i>
+                <span class="text-white font-black text-5xl leading-none">90</span>
+                <span class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mt-1">Dias</span>
+            </div>
+        </div>
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#141414]');
-                navbar.classList.remove('header-gradient');
-            } else {
-                navbar.classList.remove('bg-[#141414]');
-                navbar.classList.add('header-gradient');
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">
+            Garantia Blindada de <span class="text-brand-gold">Risco Zero</span>
+        </h2>
+        
+        <p class="text-xl md:text-2xl text-gray-700 font-medium mb-8 max-w-3xl mx-auto">
+            Treine. Pratique no espelho. Teste no Pré-Wedding.
+        </p>
+
+        <div class="bg-brand-light p-8 rounded-2xl border border-gray-200 shadow-lg relative">
+            <i class="fas fa-quote-left text-4xl text-brand-gold/20 absolute top-4 left-4"></i>
+            <p class="text-gray-600 text-lg leading-relaxed mb-0 relative z-10">
+                Nós confiamos tanto no APP Portal Noiva Fotogênica que decidimos fazer algo inédito. Você tem <strong>90 DIAS (3 meses inteiros)</strong> para acessar o portal, assistir às aulas e aplicar as técnicas. <br><br>
+                Se você treinar e, por qualquer motivo, sentir que não houve mudança na sua confiança ou nas suas fotos, nós devolvemos <strong>100% do seu dinheiro</strong>. Basta um único e-mail. Sem letras miúdas, sem perguntas e continuamos amigos. O risco é todo meu.
+            </p>
+        </div>
+
+        <div class="mt-8 flex justify-center items-center gap-2 text-brand-green font-bold bg-green-50 inline-block px-6 py-2 rounded-full border border-green-100">
+            <i class="fas fa-check-circle"></i> Sua satisfação ou seu dinheiro de volta. Simples assim.
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-16 bg-brand-light px-4 border-t border-gray-200">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-serif font-bold text-center mb-10 text-brand-gray">Dúvidas Comuns</h2>
+        <div class="space-y-4">
+            <details class="group bg-brand-light p-4 rounded-lg cursor-pointer border border-transparent hover:border-gray-200 transition-all">
+                <summary class="font-semibold text-brand-dark flex justify-between items-center list-none">
+                    É um curso online ou presencial?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-brand-gold"></i></span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm leading-relaxed">É 100% online! Você recebe acesso exclusivo ao nosso Aplicativo (APP), onde terá todas as aulas e ferramentas na palma da sua mão para assistir quando e onde quiser.</p>
+            </details>
+
+            <details class="group bg-brand-light p-4 rounded-lg cursor-pointer border border-transparent hover:border-gray-200 transition-all">
+                <summary class="font-semibold text-brand-dark flex justify-between items-center list-none">
+                    Preciso treinar muito tempo? 
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-brand-gold"></i></span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm leading-relaxed">Não! O APP Portal foi desenhado para noivas ocupadas. As aulas são diretas e práticas. Em poucos minutos você aprende a técnica para aquele momento específico (ex: pré-wedding).</p>
+            </details>
+
+            <details class="group bg-brand-light p-4 rounded-lg cursor-pointer border border-transparent hover:border-gray-200 transition-all">
+                <summary class="font-semibold text-brand-dark flex justify-between items-center list-none">
+                    Meu noivo não gosta de fotos, serve pra ele?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-brand-gold"></i></span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm leading-relaxed">Com certeza. Inclusive, temos um bônus específico para "Noivos Tímidos" com dicas simples que farão ele se sentir mais confortável sem parecer forçado.</p>
+            </details>
+
+            <details class="group bg-brand-light p-4 rounded-lg cursor-pointer border border-transparent hover:border-gray-200 transition-all">
+                <summary class="font-semibold text-brand-dark flex justify-between items-center list-none">
+                    Serve para qualquer tipo de corpo?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-brand-gold"></i></span>
+                </summary>
+                <p class="mt-3 text-gray-600 text-sm leading-relaxed">Sim! As técnicas de postura, alongamento de silhueta e posicionamento de mãos funcionam e valorizam todos os biotipos.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-brand-dark py-10 text-center text-gray-600 text-xs border-t border-gray-800">
+    <p class="mb-2 text-brand-gold font-serif text-lg">Fontez Fotografia</p>
+    <p>&copy; 2024 Todos os direitos reservados.</p>
+    <div class="mt-4 flex justify-center gap-4">
+        <a href="#" class="hover:text-white">Termos de Uso</a>
+        <a href="#" class="hover:text-white">Políticas de Privacidade</a>
+    </div>
+</footer>
+
+<script>
+    // Timer Scarcity
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = "00:" + minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
             }
-        });
+        }, 1000);
+    }
 
-        // Modal Logic
-        const modal = document.getElementById('videoModal');
-        const modalContent = document.getElementById('modalContent');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
+    // Carousel Logic
+    function initCarousel() {
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
 
-        function openModal(title) {
-            modalTitle.innerText = title;
-            
-            // Buscar descrição ou usar padrão
-            if (lessonData[title]) {
-                modalDescription.innerText = lessonData[title];
-            } else {
-                modalDescription.innerText = "Nesta aula, Edu Fontez ensina técnicas práticas para você se sentir segura e elegante. Descubra os pequenos ajustes que fazem toda a diferença.";
+        if (slides.length === 0) return;
+
+        setInterval(() => {
+            // Hide current
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+            if(indicators[currentSlide]) {
+                indicators[currentSlide].classList.remove('bg-white', 'scale-125');
+                indicators[currentSlide].classList.add('bg-white/30');
             }
 
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modalContent.classList.remove('modal-enter');
-                modalContent.classList.add('modal-enter-active');
-            }, 10);
-            document.body.style.overflow = 'hidden'; 
-        }
+            // Move to next
+            currentSlide = (currentSlide + 1) % slides.length;
 
-        function closeModal() {
-            modalContent.classList.remove('modal-enter-active');
-            modalContent.classList.add('modal-exit-active');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modalContent.classList.remove('modal-exit-active');
-                modalContent.classList.add('modal-enter'); 
-                document.body.style.overflow = 'auto';
-            }, 200);
-        }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
+            // Show next
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+            if(indicators[currentSlide]) {
+                indicators[currentSlide].classList.remove('bg-white/30');
+                indicators[currentSlide].classList.add('bg-white', 'scale-125');
             }
-        });
+        }, 3500); // Troca a cada 3.5 segundos
+    }
 
-        function togglePlayState(btn) {
-            const icon = btn.querySelector('i');
-            if (icon.classList.contains('fa-play')) {
-                icon.classList.remove('fa-play');
-                icon.classList.add('fa-pause');
-                btn.classList.remove('animate-pulse');
-            } else {
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-play');
-                btn.classList.add('animate-pulse');
-            }
-        }
-
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    window.onload = function () {
+        var fourteenMinutes = 60 * 14 + 35; 
+        var display = document.querySelector('#countdown');
+        if(display) startTimer(fourteenMinutes, display);
+        
+        initCarousel(); // Inicia o carrossel
+    };
+</script>
 </body>
 </html>
