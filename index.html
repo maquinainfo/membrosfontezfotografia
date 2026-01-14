@@ -211,7 +211,6 @@
                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[700px] bg-gradient-to-tr from-brand-gold/40 to-white/10 blur-[90px] rounded-full -z-10 animate-pulse"></div>
 
                  <!-- Mockup Visual Área de Membros - CARROSSEL MOBILE -->
-                 <!-- MUDANÇA: Borda gray-300 (prata/clara) em vez de escura e Ring branco mais forte -->
                  <div class="relative w-[300px] h-[600px] bg-black rounded-[2.5rem] border-[8px] border-gray-300 shadow-[0_20px_50px_-12px_rgba(255,255,255,0.1)] ring-2 ring-white/40 transform rotate-2 hover:rotate-0 transition duration-500 ease-out">
                     
                     <!-- Screen Container -->
@@ -268,8 +267,35 @@
         </div>
     </section>
 
-    <!-- BÔNUS 1: PLANNER COM VÍDEO -->
-    <section class="py-24 bg-brand-soft border-y border-gray-200">
+    <!-- DIVISOR DE CONTEÚDO: CHAMADA PARA OS BÔNUS (DESIGN PRETO E DOURADO) -->
+    <section class="py-20 bg-black text-white relative overflow-hidden border-t border-b border-brand-gold/20">
+        <!-- Efeitos de Luz (Glow) -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/10 blur-[100px] rounded-full -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-gold/10 blur-[100px] rounded-full translate-y-1/2 pointer-events-none"></div>
+        
+        <!-- Textura Sutil -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-block border border-brand-gold/50 text-brand-gold px-6 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-md bg-brand-gold/5 shadow-[0_0_15px_rgba(197,160,89,0.2)]">
+                🎁 Pacote Premium Incluso
+            </span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-6">
+                Mas espere... A experiência não estaria completa <br> sem estes <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold">4 Presentes Exclusivos</span>
+            </h2>
+            <p class="text-lg md:text-xl font-light text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Além do acesso vitalício ao App, você vai desbloquear gratuitamente um arsenal de ferramentas práticas para o seu casamento.
+            </p>
+            <div class="mt-10 flex justify-center">
+                <div class="w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center animate-bounce text-brand-gold shadow-lg bg-black/50 backdrop-blur-sm">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÔNUS 1: PLANNER COM VÍDEO (FUNDO CLARO) -->
+    <section class="py-24 bg-white border-y border-gray-200">
         <div class="max-w-6xl mx-auto px-0 md:px-4 flex flex-col md:flex-row items-center gap-10 md:gap-16">
             
             <!-- Coluna do Mockup (Planner/Livro) -->
@@ -334,7 +360,7 @@
                 </p>
 
                 <!-- LISTA DE FUNCIONALIDADES (DESIGN GRID) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left">
                     <!-- Item 1 -->
                     <div class="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:border-brand-gold/30">
                         <div class="bg-brand-dark text-brand-gold w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-md">
@@ -391,8 +417,8 @@
         </div>
     </section>
 
-    <!-- BÔNUS 2: BANCO DE POSES (SHOT LIST) -->
-    <section class="py-24 bg-white border-b border-gray-100">
+    <!-- BÔNUS 2: BANCO DE POSES (FUNDO ESCURO / DARK) -->
+    <section class="py-24 bg-brand-dark border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
             
             <div class="md:w-1/2">
@@ -401,24 +427,24 @@
                 </span>
                 <div class="flex items-center gap-2 mb-4">
                     <i class="fas fa-camera text-brand-gold text-2xl"></i>
-                    <span class="text-xs font-bold tracking-widest uppercase text-brand-gray">Ferramenta Prática</span>
+                    <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Ferramenta Prática</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
                     Banco de Poses de Bolso <br> <span class="text-gray-400 font-sans text-2xl font-normal">(Shot List)</span>
                 </h2>
-                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                    Travou na hora H? Abra o seu <strong>Banco de Imagens</strong> no celular. Organizado por momentos (making of, cerimônia, festa), ele serve como um catálogo visual.
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    Travou na hora H? Abra o seu <strong>Banco de Imagens</strong> no celular. Organizado por momentos (making of, cerimônia, festa), ele serve como um catálogo visual imediato.
                 </p>
-                <div class="bg-gray-50 border-l-4 border-brand-gold p-4 mb-8 rounded-r-lg">
-                    <p class="text-gray-600 text-sm">
+                <div class="bg-brand-gray border-l-4 border-brand-gold p-4 mb-8 rounded-r-lg">
+                    <p class="text-gray-300 text-sm">
                         <strong>Ajudinha para o Fotógrafo:</strong> Gostou de uma pose? Mostre a foto no celular para seu fotógrafo e diga: <em>"Quero uma igual a essa!"</em>.
                     </p>
                 </div>
                 
                 <div class="block">
-                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wide">Valor separado:</span>
+                    <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valor separado:</span>
                     <div class="flex items-center gap-3">
-                        <span class="text-xl text-gray-400 line-through">R$ 47,00</span>
+                        <span class="text-xl text-gray-500 line-through">R$ 47,00</span>
                         <span class="text-2xl font-bold text-brand-green">Grátis</span>
                     </div>
                 </div>
@@ -428,24 +454,24 @@
             <div class="md:w-1/2 relative group">
                 <img src="https://i.postimg.cc/LXNyWYzC/Design-sem-nome-(42).jpg" 
                      alt="Banco de Poses no Celular" 
-                     class="relative z-10 w-72 mx-auto rounded-[2rem] shadow-2xl transform rotate-3 transition duration-500 group-hover:rotate-0 border-4 border-gray-900">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-brand-gold/20 rounded-full blur-3xl -z-10"></div>
+                     class="relative z-10 w-72 mx-auto rounded-[2rem] shadow-2xl transform rotate-3 transition duration-500 group-hover:rotate-0 border-4 border-gray-700">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl -z-10"></div>
             </div>
         </div>
     </section>
 
-    <!-- BÔNUS 3: GUIA NOIVOS TÍMIDOS -->
-    <section class="py-24 bg-brand-dark relative overflow-hidden">
+    <!-- BÔNUS 3: GUIA NOIVOS TÍMIDOS (FUNDO CLARO) -->
+    <section class="py-24 bg-brand-soft relative overflow-hidden border-b border-gray-200">
         <!-- Background texture -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
         
         <div class="max-w-5xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-5/12 relative">
                 <!-- Ícone Gigante Representativo -->
-                <div class="w-64 h-64 mx-auto bg-brand-gray rounded-full flex items-center justify-center border-4 border-brand-gold shadow-[0_0_50px_rgba(212,175,55,0.2)]">
+                <div class="w-64 h-64 mx-auto bg-white rounded-full flex items-center justify-center border-4 border-brand-gold shadow-[0_0_50px_rgba(212,175,55,0.2)]">
                     <i class="fas fa-user-tie text-9xl text-brand-gold"></i>
                 </div>
-                <div class="absolute -bottom-4 -right-4 bg-white text-brand-dark px-6 py-2 rounded-lg font-bold shadow-lg transform -rotate-3">
+                <div class="absolute -bottom-4 -right-4 bg-brand-dark text-brand-gold px-6 py-2 rounded-lg font-bold shadow-lg transform -rotate-3">
                     Para Ele
                 </div>
             </div>
@@ -454,25 +480,25 @@
                 <span class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full text-lg font-bold uppercase tracking-widest border border-brand-dark/10 mb-6 inline-block">
                     Bônus #03
                 </span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-                    Guia Prático para <br> <span class="text-brand-gold">Noivos Tímidos</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">
+                    Guia Prático para <br> <span class="text-brand-green">Noivos Tímidos</span>
                 </h2>
-                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
                     Seu noivo trava nas fotos? Esse manual tem dicas simples e diretas para ele se soltar, saber onde colocar as mãos e parecer um galã de cinema, sem se sentir forçado.
                 </p>
                 <ul class="space-y-3 mb-8 inline-block text-left">
-                    <li class="flex items-center gap-3 text-gray-300">
+                    <li class="flex items-center gap-3 text-gray-700">
                         <i class="fas fa-check text-brand-green"></i> Como relaxar o rosto e evitar o sorriso amarelo
                     </li>
-                    <li class="flex items-center gap-3 text-gray-300">
+                    <li class="flex items-center gap-3 text-gray-700">
                         <i class="fas fa-check text-brand-green"></i> Poses masculinas de poder e elegância
                     </li>
                 </ul>
                 
-                <div class="border-t border-gray-800 pt-6">
-                    <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valor separado:</span>
+                <div class="border-t border-gray-200 pt-6">
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wide">Valor separado:</span>
                     <div class="flex items-center justify-center md:justify-start gap-3">
-                        <span class="text-xl text-gray-600 line-through">R$ 27,00</span>
+                        <span class="text-xl text-gray-400 line-through">R$ 27,00</span>
                         <span class="text-2xl font-bold text-brand-green">Grátis</span>
                     </div>
                 </div>
@@ -480,17 +506,14 @@
         </div>
     </section>
 
-    <!-- BÔNUS 4: CONVITE DIGITAL ANIMADO -->
-    <section class="py-24 bg-white border-b border-gray-100">
-        <!-- Ajustei px-4 para px-0 no mobile para maximizar o tamanho -->
-        <div class="max-w-6xl mx-auto px-0 md:px-4 flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            
-            <!-- Coluna do Mockup -->
-            <div class="w-full md:w-1/2 order-2 md:order-1 px-2 md:px-0">
+    <!-- BÔNUS 4: CONVITE DIGITAL ANIMADO (FUNDO ESCURO) -->
+    <section class="py-24 bg-brand-dark border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 order-2 md:order-1 px-4 md:px-0">
                 <!-- MOCKUP PLANNER / CADERNO (Estilo Álbum para o Convite) -->
                 <div class="relative mx-auto w-full max-w-2xl group perspective-1000">
                     <!-- Sombra de fundo -->
-                    <div class="absolute top-4 left-4 w-full h-full bg-gray-300 rounded-r-2xl rounded-l-md -z-10"></div>
+                    <div class="absolute top-4 left-4 w-full h-full bg-brand-gold/10 rounded-r-2xl rounded-l-md -z-10"></div>
                     
                     <!-- Capa -->
                     <div class="relative bg-gray-900 rounded-r-2xl rounded-l-md p-1 pl-3 shadow-2xl border-r-4 border-b-4 border-gray-800 transition transform duration-500 group-hover:-translate-y-1 group-hover:-translate-x-1">
@@ -531,29 +554,28 @@
                 </p>
             </div>
 
-            <!-- Coluna de Texto (com padding lateral no mobile) -->
-            <div class="md:w-1/2 order-1 md:order-2 text-center md:text-left">
+            <div class="md:w-1/2 order-1 md:order-2 text-center md:text-left px-4 md:px-0">
                 <span class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full text-lg font-bold uppercase tracking-widest border border-brand-dark/10 mb-6 inline-block">
                     Bônus #04
                 </span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
                     Convite Digital <br> <span class="text-brand-gold">para enviar pelo Whatsapp</span>
                 </h2>
-                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
                     Surpreenda seus convidados antes mesmo da festa. Você ganha acesso a um modelo exclusivo de <strong>Convite em Vídeo (Motion Graphics)</strong>.
                 </p>
-                <p class="text-gray-600 mb-8 leading-relaxed">
+                <p class="text-gray-400 mb-8 leading-relaxed">
                     Elegante, moderno e emocionante. Basta editar com seus dados e enviar. É a primeira impressão perfeita para o seu grande dia.
                 </p>
                 
-                <div class="bg-brand-soft border border-brand-gold/20 p-4 rounded-lg inline-block text-left w-full">
+                <div class="bg-brand-gray border border-brand-gold/20 p-4 rounded-lg inline-block text-left w-full">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valor separado:</span>
-                        <span class="text-sm font-bold text-brand-green bg-green-100 px-2 py-1 rounded">100% OFF</span>
+                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wide">Valor separado:</span>
+                        <span class="text-sm font-bold text-brand-green bg-green-900/30 px-2 py-1 rounded">100% OFF</span>
                     </div>
                     <div class="flex items-center justify-between mt-1">
-                        <span class="text-xl text-gray-400 line-through">R$ 147,00</span>
-                        <span class="text-2xl font-bold text-brand-dark">Grátis</span>
+                        <span class="text-xl text-gray-500 line-through">R$ 147,00</span>
+                        <span class="text-2xl font-bold text-white">Grátis</span>
                     </div>
                 </div>
             </div>
@@ -650,7 +672,7 @@
                     <div class="flex items-start gap-3 text-white">
                         <div class="w-6 h-6 mt-0.5 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center text-xs shrink-0"><i class="fas fa-check"></i></div> 
                         <div>
-                            <span class="font-bold text-sm md:text-base">Acesso Vitalício ao APP Portal</span>
+                            <span class="font-bold">Acesso Vitalício ao APP Portal</span>
                             <p class="text-xs text-gray-400 mt-0.5">Acesso a todas as aulas e ferramentas</p>
                         </div>
                     </div>
@@ -662,7 +684,7 @@
                     <div class="flex items-start gap-3 text-gray-300">
                         <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
                         <div>
-                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 1:</span> <span class="text-sm md:text-base">Planner da Noiva</span>
+                            <span class="font-bold text-brand-gold">Bônus 1:</span> Planner da Noiva
                             <p class="text-xs text-gray-500 mt-0.5">Organização Financeira e Checklists</p>
                         </div>
                     </div>
@@ -671,7 +693,7 @@
                     <div class="flex items-start gap-3 text-gray-300">
                         <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
                         <div>
-                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 2:</span> <span class="text-sm md:text-base">Banco de Poses</span>
+                            <span class="font-bold text-brand-gold">Bônus 2:</span> Banco de Poses
                             <p class="text-xs text-gray-500 mt-0.5">Shot List de bolso para o dia</p>
                         </div>
                     </div>
@@ -680,7 +702,7 @@
                     <div class="flex items-start gap-3 text-gray-300">
                         <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-gift"></i></div> 
                         <div>
-                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 3:</span> <span class="text-sm md:text-base">Guia do Noivo</span>
+                            <span class="font-bold text-brand-gold">Bônus 3:</span> Guia do Noivo
                             <p class="text-xs text-gray-500 mt-0.5">Para noivos tímidos</p>
                         </div>
                     </div>
@@ -689,7 +711,7 @@
                     <div class="flex items-start gap-3 text-gray-300">
                         <div class="w-6 h-6 mt-0.5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xs shrink-0"><i class="fas fa-envelope-open-text"></i></div> 
                         <div>
-                            <span class="font-bold text-brand-gold text-sm md:text-base">Bônus 4:</span> <span class="text-sm md:text-base">Convite Digital Animado</span>
+                            <span class="font-bold text-brand-gold">Bônus 4:</span> Convite Digital Animado
                             <p class="text-xs text-gray-500 mt-0.5">Cartão de vídeo de casamento</p>
                         </div>
                     </div>
